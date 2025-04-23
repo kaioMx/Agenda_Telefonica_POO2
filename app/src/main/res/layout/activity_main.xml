@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#003b73"
+    android:padding="16dp">
+
+    <!-- Header com logo e título -->
+
+    <!-- Campo de Pesquisa -->
+
+    <!-- Botão Adicionar -->
+
+    <!-- Lista de Contatos -->
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/cinzel_extrabold"
+        android:text="Nobre Agenda"
+        android:textAlignment="center"
+        android:textColor="#ffb743"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:layout_width="262dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Pesquisar..."
+        android:padding="12dp"
+        app:layout_constraintEnd_toStartOf="@id/btnAddContact"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView3" />
+
+    <ImageButton
+        android:id="@+id/btnAddContact"
+        android:layout_width="77dp"
+        android:layout_height="74dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/addcontatos"
+        android:contentDescription="Adicionar contato"
+        app:layout_constraintBottom_toBottomOf="@id/editTextSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editTextSearch"
+        app:layout_constraintVertical_bias="0.549" />
+
+    <ListView
+        android:id="@+id/listViewContacts"
+        android:layout_width="330dp"
+        android:layout_height="410dp"
+        android:layout_marginTop="16dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextSearch"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

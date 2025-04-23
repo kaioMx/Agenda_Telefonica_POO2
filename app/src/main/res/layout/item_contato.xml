@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Nome do Contato -->
+    <TextView
+        android:id="@+id/txtNomeContato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:text="Nome do Contato"
+        android:textAlignment="viewStart"
+        android:textColor="#F4F4F4"
+        android:textSize="24sp" />
+
+    <!-- Botão Editar -->
+    <ImageButton
+        android:id="@+id/btnEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="Editar"
+        android:src="@android:drawable/ic_menu_edit"
+        android:tint="#13A5E9" />
+
+    <!-- Botão Excluir -->
+    <ImageButton
+        android:id="@+id/btnExcluir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_delete"
+        android:tint="#D50B06" />
+</LinearLayout>
