@@ -46,28 +46,28 @@
 
     <EditText
         android:id="@+id/editTextSearch"
-        android:layout_width="262dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="241dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/edittext_background"
         android:hint="Pesquisar..."
         android:padding="12dp"
         app:layout_constraintEnd_toStartOf="@id/btnAddContact"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView3" />
 
     <ImageButton
         android:id="@+id/btnAddContact"
-        android:layout_width="77dp"
-        android:layout_height="74dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="67dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/addcontatos"
         android:contentDescription="Adicionar contato"
         app:layout_constraintBottom_toBottomOf="@id/editTextSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/editTextSearch"
-        app:layout_constraintVertical_bias="0.549" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <ListView
         android:id="@+id/listViewContacts"
@@ -82,5 +82,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextSearch"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/btnBuscarContact"
+        android:layout_width="59dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/icone_lupa"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddContact"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextSearch"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
