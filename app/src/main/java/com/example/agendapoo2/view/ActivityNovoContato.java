@@ -3,6 +3,7 @@ package com.example.agendapoo2.view;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class ActivityNovoContato extends AppCompatActivity {
     private EditText tvTelefone;
     private EditText tvEmail;
     private Button bntSalvar;
+    private ImageButton btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,11 @@ public class ActivityNovoContato extends AppCompatActivity {
         tvTelefone = findViewById(R.id.tvTelefone);
         tvEmail = findViewById(R.id.tvEmail);
         bntSalvar = findViewById(R.id.bntSalvar);
+        btnVoltar = findViewById(R.id.bntVoltar);
+
+        btnVoltar.setOnClickListener(v -> {
+            finish();
+        });
 
         bntSalvar.setOnClickListener(v ->{
             String nome = tvNome.getText().toString().trim();

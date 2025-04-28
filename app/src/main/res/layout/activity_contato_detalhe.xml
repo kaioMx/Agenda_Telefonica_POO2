@@ -47,18 +47,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTelefone" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+    <ImageButton
+        android:id="@+id/btnLigar"
+        android:layout_width="104dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/ligacao"
         app:layout_constraintEnd_toStartOf="@+id/bntEditarDet"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail"
-        app:srcCompat="@drawable/ligacao" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <ImageButton
         android:id="@+id/bntEditarDet"
@@ -69,7 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail"
         app:srcCompat="@drawable/editar"
-        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+        android:foreground="?attr/selectableItemBackgroundBorderless"/>]
+
 
     <Button
         android:id="@+id/bntSalvar"

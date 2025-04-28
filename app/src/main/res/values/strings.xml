@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AgendaPoo2</string>
+    <string name="app_name">NobreAgenda</string>
     <string name="alert_dialog_contato_vazio">Favor preencher todos os campos!</string>
     <string name="alert_contato_adicionado">Contato adicionado com sucesso!</string>
     <string name="alert_dialog_contato_telefone">Preencha corretamente o telefone!</string>

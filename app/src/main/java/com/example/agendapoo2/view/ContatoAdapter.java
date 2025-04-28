@@ -44,7 +44,9 @@ public class ContatoAdapter extends ArrayAdapter<Contato> {
                 bd.contatoDAO().excluirContato(contato);
 
                 new Handler(Looper.getMainLooper()).post(() -> {
+
                     MensagemBuilder.mostrarAlerta(getContext(), getContext().getString(R.string.alert_contato_excluido));
+                    notifyDataSetChanged();
                 });
             });
         });

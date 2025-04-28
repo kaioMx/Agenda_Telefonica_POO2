@@ -1,6 +1,8 @@
 package com.example.agendapoo2.view;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contato> listaContatosCompleta;
     private ArrayList<Contato> listaContatosFiltrada; // Lista para exibir no ListView
     private BuscaStrategy buscaStrategy;
+    private ImageButton btnReload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        btnReload = findViewById(R.id.btnReload);
+
+        btnReload.setOnClickListener(v -> {
+            atualizarAdapter(); // Quando clicar, recarrega tudo
+        });
+
+
         // Botão buscar contatos
         btnBuscarContact.setOnClickListener(v -> {
             String termo = editTextSearch.getText().toString().trim();
@@ -95,6 +105,28 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         });
 
+    }
+    private void atualizarAdapter() {
+        Executors.newSingleThreadExecutor().execute(() -> {
+            BancoDados bd = Singleton.getInstance(getApplicationContext()).getBancoDados();
+            List<Contato> contatos = bd.contatoDAO().bucarTodosContatos();
+
+            new Handler(Looper.getMainLooper()).post(() -> {
+                listaContatosCompleta.clear();
+                listaContatosCompleta.addAll(contatos);
+
+                listaContatosFiltrada.clear();
+                listaContatosFiltrada.addAll(contatos);
+
+                adapter.notifyDataSetChanged();
+            });
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atualizarAdapter(); // <<< RECARREGA SEMPRE QUE VOLTAR PRA MAIN
     }
 }
 

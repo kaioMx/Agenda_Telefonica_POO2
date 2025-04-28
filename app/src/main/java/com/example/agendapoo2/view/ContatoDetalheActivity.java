@@ -44,7 +44,7 @@ public class ContatoDetalheActivity extends AppCompatActivity {
         bntEditarDeta = findViewById(R.id.bntEditarDet);
         bntSalvar = findViewById(R.id.bntSalvar);
         //HABILITAR ISSO DPS DE MUDAR O IMAGEVIEW PRA UM IMAGEBUTTON
-        //btnLigar = findViewById(R.id.imageView8);
+         btnLigar = findViewById(R.id.btnLigar);
 
         // Recebe os dados da Intent
         String nome = getIntent().getStringExtra("nome");
@@ -56,9 +56,8 @@ public class ContatoDetalheActivity extends AppCompatActivity {
         tvTelefone.setText(telefone != null ? telefone : "Telefone não informado");
         tvEmail.setText(email != null ? email : "Email não informado");
         bntSalvar.setVisibility(View.GONE);
-        btnVoltar.setOnClickListener(v -> {
-            finish();
-        });
+
+
 
         tvNome.setEnabled(false);
         tvTelefone.setEnabled(false);
@@ -81,6 +80,13 @@ public class ContatoDetalheActivity extends AppCompatActivity {
                 });
             });
         }
+        btnLigar.setOnClickListener(v ->{
+            MensagemBuilder.mostrarAlerta(this, "Insira um chip para fazer a ligação, so pode ser de operadora Coreana");
+        });
+
+        btnVoltar.setOnClickListener(v -> {
+            finish();
+        });
 
         bntEditarDeta.setOnClickListener(v -> {
             tvNome.setEnabled(true);
