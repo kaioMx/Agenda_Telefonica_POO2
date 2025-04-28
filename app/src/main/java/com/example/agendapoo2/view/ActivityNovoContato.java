@@ -58,7 +58,7 @@ public class ActivityNovoContato extends AppCompatActivity {
                     MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_dialog_contato_email));
                     break;
                 case SUCESSO:
-                    MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_contato_adicionado));
+                    //MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_contato_adicionado));
                     break;
             }
 
