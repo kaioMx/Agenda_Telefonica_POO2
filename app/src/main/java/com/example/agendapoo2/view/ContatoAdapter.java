@@ -1,6 +1,4 @@
-package com.example.agendapoo2;
-
-import static java.security.AccessController.getContext;
+package com.example.agendapoo2.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,14 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.agendapoo2.R;
+import com.example.agendapoo2.model.Contato;
 
 import java.util.List;
 
 public class ContatoAdapter extends ArrayAdapter<Contato> {
 
-    public ContatoAdapter(Context context, List<Contato> contatos) {
-        super(context, 0, contatos);
+    public ContatoAdapter(Context context, List<Contato> contato) {
+        super(context, 0, contato);
     }
 
     @Override

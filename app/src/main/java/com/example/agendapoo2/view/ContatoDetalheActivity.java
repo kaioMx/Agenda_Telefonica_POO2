@@ -1,12 +1,14 @@
-package com.example.agendapoo2;
+package com.example.agendapoo2.view;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageButton;
 import android.view.View;
+
+import com.example.agendapoo2.R;
 
 
 public class ContatoDetalheActivity extends AppCompatActivity {

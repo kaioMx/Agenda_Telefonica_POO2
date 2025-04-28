@@ -1,14 +1,15 @@
-package com.example.agendapoo2;
+package com.example.agendapoo2.model;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuscarPorNome implements BuscaStrategy {
+public class BuscaPorTelefone implements BuscaStrategy {
     @Override
     public List<Contato> buscar(List<Contato> contatos, String termo) {
         List<Contato> resultado = new ArrayList<>();
         for (Contato contato : contatos) {
-            if (contato.getNome().toLowerCase().contains(termo.toLowerCase())) {
+            if (contato.getTelefone().toLowerCase().contains(termo.toLowerCase())) {
                 resultado.add(contato);
             }
         }

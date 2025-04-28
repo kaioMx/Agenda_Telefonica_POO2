@@ -1,31 +1,23 @@
-package com.example.agendapoo2;
+package com.example.agendapoo2.view;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.content.Intent; // Para abrir nova tela
-import android.os.Bundle; // Para o onCreate
-import android.view.View; // Para interações de View
-import android.widget.AdapterView; // Para o clique na lista
-import android.widget.ArrayAdapter; // Para o adapter (se ainda usar)
-import android.widget.EditText; // Campo de pesquisa
-import android.widget.ImageButton; // Botão adicionar
-import android.widget.ListView; // Lista de contatos
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity; // Activity padrão moderna
 import java.util.ArrayList; // P
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.example.agendapoo2.model.BuscaStrategy;
+import com.example.agendapoo2.model.BuscarPorNome;
+import com.example.agendapoo2.R;
+import com.example.agendapoo2.database.BancoDados;
+import com.example.agendapoo2.database.Singleton;
+import com.example.agendapoo2.model.Contato;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnBuscarContact; // novo botão de buscar
     private ListView listViewContacts;
     private ContatoAdapter adapter;
-    private ArrayList<Contato> listaContatosCompleta; // TODOS os contatos
+    private ArrayList<Contato> listaContatosCompleta;
     private ArrayList<Contato> listaContatosFiltrada; // Lista para exibir no ListView
     private BuscaStrategy buscaStrategy;
 
@@ -53,7 +45,23 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ContatoAdapter(this, listaContatosFiltrada);
         listViewContacts.setAdapter(adapter);
 
+        Executors.newSingleThreadExecutor().execute(() -> {
+            BancoDados bd = Singleton.getInstance(getApplicationContext()).getBancoDados();
+            List<Contato> contatos = bd.contatoDAO().bucarTodosContatos();
 
+            runOnUiThread(() -> {
+                listaContatosCompleta.clear();
+                listaContatosCompleta.addAll(contatos);
+
+                listaContatosFiltrada.clear();
+                listaContatosFiltrada.addAll(contatos);
+
+                adapter.notifyDataSetChanged();
+
+                // Estratégia inicial: buscar por nome
+                buscaStrategy = new BuscarPorNome();
+            });
+        });
 
         listViewContacts.setOnItemClickListener((parent, view, position, id) -> {
             Contato contatoSelecionado = adapter.getItem(position);
@@ -67,17 +75,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnAddContact.setOnClickListener(v -> {
-            String nome = editTextSearch.getText().toString().trim();
-            if (!nome.isEmpty()) {
-                listaContatosCompleta.add(ContatoFactory.criarContato(nome, "", ""));
-                listaContatosFiltrada.clear();
-                listaContatosFiltrada.addAll(listaContatosCompleta);
-                adapter.notifyDataSetChanged();
-                editTextSearch.setText("");
-            }
+            Intent intent = new Intent(MainActivity.this, ActivityNovoContato.class);
+            startActivity(intent);
         });
-
-
 
         // Botão buscar contatos
         btnBuscarContact.setOnClickListener(v -> {
@@ -94,16 +94,6 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         });
 
-        // Exemplo de contatos pré-carregados
-        listaContatosCompleta.add(ContatoFactory.criarContato("Kaio Dev", "34999999999", "kaio@email.com"));
-        listaContatosCompleta.add(ContatoFactory.criarContato("Isadora Cabeçuda", "3488888888", "isadora@email.com"));
-        listaContatosFiltrada.addAll(listaContatosCompleta); // precisa preencher a lista visível
-        adapter.notifyDataSetChanged();
-
-        adapter.notifyDataSetChanged();
-
-        // Estratégia inicial: buscar por nome
-        buscaStrategy = new BuscarPorNome();
     }
 }
 
