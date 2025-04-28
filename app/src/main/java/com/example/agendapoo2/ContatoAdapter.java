@@ -28,14 +28,10 @@ public class ContatoAdapter extends ArrayAdapter<Contato> {
         }
 
         TextView txtNome = convertView.findViewById(R.id.txtNomeContato);
-        ImageButton btnEditar = convertView.findViewById(R.id.btnEditar);
+
         ImageButton btnExcluir = convertView.findViewById(R.id.btnExcluir);
 
         txtNome.setText(contato.getNome());
-
-        btnEditar.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Editar: " + contato.getNome(), Toast.LENGTH_SHORT).show();
-        });
 
         btnExcluir.setOnClickListener(v -> {
             remove(contato); // Remove da lista

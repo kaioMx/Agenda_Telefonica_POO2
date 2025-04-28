@@ -1,6 +1,5 @@
+package com.example.agendapoo2;
 
-
-  package com.example.agendapoo2;
 
     public class Contato {
         private String nome;
@@ -18,6 +17,7 @@
         }
 
         public String getTelefone() {
+
             return telefone;
         }
 
