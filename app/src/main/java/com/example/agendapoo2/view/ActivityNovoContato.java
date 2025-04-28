@@ -37,10 +37,7 @@ public class ActivityNovoContato extends AppCompatActivity {
             //Log.i("DEBUG: ", nome + " " + telefone + " " + email);
             BancoDados bd = Singleton.getInstance(getApplicationContext()).getBancoDados();
             ContatoFactory.ResultadoCriacao resultado = ContatoFactory.criarContato(nome, telefone, email, bd, () -> {
-                runOnUiThread(() -> {
-                    MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_contato_adicionado));
-                    finish();
-                });
+                runOnUiThread(this::finish);
             });
 
             switch (resultado) {
@@ -54,6 +51,7 @@ public class ActivityNovoContato extends AppCompatActivity {
                     MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_dialog_contato_email));
                     break;
                 case SUCESSO:
+                    MensagemBuilder.mostrarAlerta(this, getString(R.string.alert_contato_adicionado));
                     break;
             }
 

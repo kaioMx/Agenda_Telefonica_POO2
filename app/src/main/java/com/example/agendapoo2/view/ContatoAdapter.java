@@ -1,6 +1,8 @@
 package com.example.agendapoo2.view;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.agendapoo2.R;
+import com.example.agendapoo2.database.BancoDados;
+import com.example.agendapoo2.database.Singleton;
 import com.example.agendapoo2.model.Contato;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 public class ContatoAdapter extends ArrayAdapter<Contato> {
 
@@ -34,8 +39,14 @@ public class ContatoAdapter extends ArrayAdapter<Contato> {
         txtNome.setText(contato.getNome());
 
         btnExcluir.setOnClickListener(v -> {
-            remove(contato); // Remove da lista
-            notifyDataSetChanged(); // Atualiza ListView
+            Executors.newSingleThreadExecutor().execute(() -> {
+                BancoDados bd = Singleton.getInstance(getContext().getApplicationContext()).getBancoDados();
+                bd.contatoDAO().excluirContato(contato);
+
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    MensagemBuilder.mostrarAlerta(getContext(), getContext().getString(R.string.alert_contato_excluido));
+                });
+            });
         });
 
         return convertView;

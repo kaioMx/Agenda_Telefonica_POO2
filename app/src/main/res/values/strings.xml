@@ -5,4 +5,5 @@
     <string name="alert_dialog_contato_telefone">Preencha corretamente o telefone!</string>
     <string name="alert_dialog_contato_email">Preencha corretamente o email!</string>
     <string name="alert_contato_atualizado">Contato atualizado com sucesso!</string>
+    <string name="alert_contato_excluido">Contato excluído com sucesso!</string>
 </resources>

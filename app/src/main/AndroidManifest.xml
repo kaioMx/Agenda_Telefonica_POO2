@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logopoo2"
-        android:label="@string/Nobre_Agenda"
+        android:label="@string/app_name"
         android:roundIcon="@drawable/img"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaPoo2"
