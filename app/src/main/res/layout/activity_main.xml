@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -16,89 +17,82 @@
 
     <!-- Lista de Contatos -->
 
-
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="77dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSearch"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="86dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img" />
 
+
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="222dp"
-        android:layout_height="102dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:fontFamily="@font/cinzel_extrabold"
-        android:text="Nobre                 Agenda"
+        android:text="Nobre Agenda"
         android:textAlignment="center"
         android:textColor="#ffb743"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextSearch"
-        android:layout_width="231dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="241dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/edittext_background"
         android:hint="Pesquisar..."
         android:padding="12dp"
-        android:textColor="#2C0909"
-        app:layout_constraintBottom_toTopOf="@+id/listViewContacts"
         app:layout_constraintEnd_toStartOf="@id/btnAddContact"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@id/imageView3" />
 
     <ImageButton
         android:id="@+id/btnAddContact"
-        android:layout_width="51dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="67dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/addcontatos"
         android:contentDescription="Adicionar contato"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@+id/listViewContacts"
-        app:layout_constraintStart_toEndOf="@+id/btnBuscarContact"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintBottom_toBottomOf="@id/editTextSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editTextSearch"
+        app:layout_constraintVertical_bias="0.607" />
 
     <ListView
         android:id="@+id/listViewContacts"
-        android:layout_width="337dp"
-        android:layout_height="367dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="330dp"
+        android:layout_height="410dp"
+        android:layout_marginTop="16dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSearch" />
+        app:layout_constraintTop_toBottomOf="@id/editTextSearch"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/btnBuscarContact"
-        android:layout_width="50dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/lupa"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@+id/listViewContacts"
+        android:layout_width="59dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/icone_lupa"
         app:layout_constraintEnd_toStartOf="@+id/btnAddContact"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/editTextSearch"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.494" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

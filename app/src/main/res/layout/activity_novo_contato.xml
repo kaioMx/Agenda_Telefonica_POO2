@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:text="Nome"
+        android:hint="Nome"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
@@ -27,7 +27,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:focusedSearchResultHighlightColor="#D90C0C"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -47,41 +46,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTelefone" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/bntEditarDet"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail"
-        app:srcCompat="@drawable/ligacao" />
-
-    <ImageButton
-        android:id="@+id/bntEditarDet"
-        android:layout_width="81dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail"
-        app:srcCompat="@drawable/editar"
-        android:foreground="?attr/selectableItemBackgroundBorderless"/>
-
     <Button
         android:id="@+id/bntSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:backgroundTint="#0676AD"
         android:text="SALVAR"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/bntEditarDet"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteY="376dp" />
 
     <ImageButton
         android:id="@+id/bntVoltar"
@@ -91,8 +65,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/volta_certo"
-        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+        app:srcCompat="@drawable/volta_certo" />
 
     <TextView
         android:id="@+id/textView"
