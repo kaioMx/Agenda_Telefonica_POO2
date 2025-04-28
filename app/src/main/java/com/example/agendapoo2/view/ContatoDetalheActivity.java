@@ -9,6 +9,10 @@ import android.widget.ImageButton;
 import android.view.View;
 
 import com.example.agendapoo2.R;
+import com.example.agendapoo2.database.BancoDados;
+import com.example.agendapoo2.database.Singleton;
+
+import java.util.concurrent.Executors;
 
 
 public class ContatoDetalheActivity extends AppCompatActivity {
@@ -18,6 +22,8 @@ public class ContatoDetalheActivity extends AppCompatActivity {
     private EditText tvEmail;
     private ImageButton bntEditarDeta;
     private Button bntSalvar;
+    private ImageButton btnLigar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +36,8 @@ public class ContatoDetalheActivity extends AppCompatActivity {
         ImageButton btnVoltar = findViewById(R.id.bntVoltar);
         bntEditarDeta = findViewById(R.id.bntEditarDet);
         bntSalvar = findViewById(R.id.bntSalvar);
+        //HABILITAR ISSO DPS DE MUDAR O IMAGEVIEW PRA UM IMAGEBUTTON
+        //btnLigar = findViewById(R.id.imageView8);
 
         // Recebe os dados da Intent
         String nome = getIntent().getStringExtra("nome");
@@ -55,7 +63,14 @@ public class ContatoDetalheActivity extends AppCompatActivity {
             tvEmail.setEnabled(true);
             bntSalvar.setVisibility(View.VISIBLE);
 
+            Executors.newSingleThreadExecutor().execute(() -> {
+                BancoDados bd = Singleton.getInstance(getApplicationContext()).getBancoDados();
+
+
+            });
+
         });
+
         bntSalvar.setOnClickListener(v -> {
             tvNome.setEnabled(false);
             tvTelefone.setEnabled(false);
