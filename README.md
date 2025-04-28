@@ -5,7 +5,7 @@ Aplicativo Android simples para gerenciamento de contatos, utilizando Room como 
 ## :zap: Padrões de Projeto e Princípios
 - Factory: Utilizado para gerar uma fábrica de contatos
 - Singleton: Utilizado para criar uma única instância do Banco de Dados
-- Adapter: 
+- Adapter:  Está adaptando os dados para serem mostrados na interface do usuário no caso "ListView"
 - Strategy: Utilizado como forma de ordenação (busca de contatos)
 - Builder: Utilizado para construir cada `AlertDialog`
 - S (Single Responsability Principle): Utilizado para garantir que cada classe tenha uma única responsabilidade
