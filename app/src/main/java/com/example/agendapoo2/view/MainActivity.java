@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             Contato contatoSelecionado = adapter.getItem(position);
             if (contatoSelecionado != null) {
                 Intent intent = new Intent(MainActivity.this, ContatoDetalheActivity.class);
+                intent.putExtra("id", contatoSelecionado.getId());
                 intent.putExtra("nome", contatoSelecionado.getNome());
                 intent.putExtra("telefone", contatoSelecionado.getTelefone());
                 intent.putExtra("email", contatoSelecionado.getEmail());

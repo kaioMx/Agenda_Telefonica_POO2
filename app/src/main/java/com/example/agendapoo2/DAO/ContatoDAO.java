@@ -1,8 +1,10 @@
 package com.example.agendapoo2.DAO;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.agendapoo2.model.Contato;
 
@@ -13,6 +15,15 @@ public interface ContatoDAO {
 
     @Insert
     void addContato(Contato contato);
+
+    @Update
+    void atualizarContato(Contato contato);
+
+    @Delete
+    void excluirContato(Contato contato);
+
+    @Query("SELECT * FROM Contato WHERE id = :id")
+    Contato buscarPorId(int id);
 
     @Query("SELECT * FROM Contato")
     List<Contato> bucarTodosContatos();
@@ -26,6 +37,4 @@ public interface ContatoDAO {
     @Query("SELECT * FROM Contato WHERE nome = :nome")
     List<Contato> buscarPorNome(String nome);
 
-    @Query("DELETE FROM Contato WHERE email = :email")
-    void excluirContato(String email);
 }
