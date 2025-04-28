@@ -27,6 +27,7 @@
         android:id="@+id/btnExcluir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#00F6E2E2"
         android:src="@android:drawable/ic_menu_delete"
-        android:tint="#D50B06" />
+        android:tint="#FF0701" />
 </LinearLayout>
